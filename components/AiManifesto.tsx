@@ -11,11 +11,9 @@ export default function AiManifesto() {
         if (!manifestoText.trim()) return;
 
         setLoading(true);
-        setSummary(""); // Clear previous results
+        setSummary("");
 
         try {
-            // NOTE: Ensure this matches the actual file path of your API route!
-            // If your file is at app/api/generate/route.ts, change this to "/api/generate"
             const res = await fetch("/api/manifesto", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -28,7 +26,7 @@ export default function AiManifesto() {
                 throw new Error("Failed to generate");
             }
 
-            setSummary(data.summary || data.answer || data.text || "Summary generated successfully.");
+            setSummary(data.summary || "Summary generated successfully.");
 
         } catch (error) {
             console.error("Manifesto Error:", error);
@@ -59,7 +57,6 @@ export default function AiManifesto() {
                     placeholder="Paste manifesto text here (e.g., 'Batman promises to clean up Gotham...')"
                 />
 
-                {/* The Results Area */}
                 {summary && (
                     <div className="bg-black/40 border border-white/5 rounded-lg p-4 mt-2 animate-in fade-in slide-in-from-bottom-2 duration-300 overflow-y-auto max-h-40">
                         <div className="text-slate-300 text-sm font-light whitespace-pre-wrap">
@@ -69,7 +66,6 @@ export default function AiManifesto() {
                 )}
             </div>
 
-            {/* The Button Container - Perfectly Aligned at the bottom */}
             <div className="p-6 pt-0 mt-auto">
                 <button
                     onClick={generateSummary}
