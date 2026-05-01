@@ -23,10 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="light"
-    >
+    <html lang="en" className="dark bg-[#0A0A0A] text-slate-200">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

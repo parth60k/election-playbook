@@ -29,39 +29,39 @@ export default function VoterAssistant() {
     };
 
     return (
-        <div className="bg-white border border-slate-200 shadow-sm rounded-xl p-6 w-full max-w-2xl mx-auto my-8">
+        <div className="p-6 w-full max-w-2xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
-                <div className="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shadow-[0_0_10px_rgba(99,102,241,0.2)]">
                     AI
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900">Voter Assistant</h3>
+                <h3 className="text-lg font-semibold text-slate-200">Voter Assistant</h3>
             </div>
 
-            <p className="text-slate-500 mb-4 text-sm">
-                Have a question about the voting process, registration, or election rules? Ask our neutral AI assistant.
+            <p className="text-slate-400 mb-5 text-sm font-light">
+                Ask our neutral AI anything about the voting process, registration, or election rules.
             </p>
 
-            <div className="flex gap-2 mb-4">
+            <div className="flex flex-col gap-3 mb-2">
                 <input
                     type="text"
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && askAssistant()}
-                    placeholder="e.g., What ID do I need to bring to the polling booth?"
-                    className="flex-1 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400"
+                    placeholder="e.g., What ID do I need?"
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm"
                 />
                 <button
                     onClick={askAssistant}
                     disabled={loading}
-                    className="bg-slate-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-slate-800 transition disabled:opacity-50"
+                    className="w-full bg-indigo-600/90 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-indigo-500 transition-all disabled:opacity-50 shadow-[0_0_15px_rgba(79,70,229,0.4)] text-sm"
                 >
-                    {loading ? "Thinking..." : "Ask"}
+                    {loading ? "Decrypting answer..." : "Ask Assistant"}
                 </button>
             </div>
 
             {answer && (
-                <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 mt-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <p className="text-slate-800 leading-relaxed text-sm">
+                <div className="bg-black/40 border border-white/5 rounded-lg p-4 mt-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <p className="text-slate-300 leading-relaxed text-sm font-light">
                         {answer}
                     </p>
                 </div>
