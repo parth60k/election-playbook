@@ -25,34 +25,20 @@ export default function AiManifesto() {
     };
 
     return (
-        <div className="w-full max-w-5xl mx-auto p-6 mt-12 bg-gray-950 border border-blue-900 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.15)]">
-            <h2 className="text-3xl font-bold text-white flex items-center gap-2 mb-2">
-                <Bot className="text-blue-500" /> TL;DR Manifesto AI
-            </h2>
-            <p className="text-gray-400 mb-6">Nobody reads 50-page PDFs. Get a 3-point summary instantly.</p>
-
-            <div className="flex flex-col md:flex-row gap-4 mb-6">
-                <input
-                    type="text"
-                    value={party}
-                    onChange={(e) => setParty(e.target.value)}
-                    className="bg-black border border-gray-700 text-white p-3 rounded-lg flex-1 outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Enter a party or candidate name..."
+        <div className="flex flex-col h-full">
+            <div className="p-6 flex-grow">
+                <h3 className="text-lg font-semibold text-slate-200 mb-4">TL;DR Manifesto AI</h3>
+                <textarea
+                    className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-slate-300 text-sm mb-4 h-32 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    placeholder="Paste manifesto text here..."
                 />
-                <button
-                    onClick={getSummary}
-                    disabled={loading}
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-bold transition-colors disabled:opacity-50 flex justify-center items-center"
-                >
-                    {loading ? <Loader2 className="animate-spin" /> : "Generate Summary"}
+            </div>
+            {/* This container ensures the button stays perfectly within the box */}
+            <div className="p-6 pt-0 mt-auto">
+                <button className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-lg transition-all shadow-[0_0_15px_rgba(79,70,229,0.3)]">
+                    Generate Summary
                 </button>
             </div>
-
-            {summary && (
-                <div className="bg-black p-6 rounded-xl border border-gray-800 text-gray-200 whitespace-pre-wrap leading-relaxed">
-                    {summary}
-                </div>
-            )}
         </div>
     );
 }
