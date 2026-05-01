@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗳️ The Election Playbook
+**An AI-Native Civic Engagement Platform built for PromptWars.**
 
-## Getting Started
+[![Top 6% Global Finish](https://img.shields.io/badge/Rank-Top%201000-blueviolet?style=for-the-badge)](https://github.com/parth60k/election-playbook)
+[![Next.js 14](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Gemini AI](https://img.shields.io/badge/AI-Gemini%203.0%20Flash-blue?style=for-the-badge&logo=google-gemini)](https://deepmind.google/technologies/gemini/)
 
-First, run the development server:
+## 🚀 Overview
+**The Election Playbook** is a production-ready civic tech platform designed to combat voter apathy and information fatigue. By leveraging the **Gemini 3.0 Flash API**, it transforms dense political discourse into actionable, objective insights.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+While most AI projects focus on the "happy path," this platform is engineered for **resilience**. It features a custom fail-safe architecture to ensure 100% uptime during high-traffic election cycles.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. TL;DR Manifesto AI
+*   **The Problem:** Political manifestos are often hundreds of pages of "fluff."
+*   **The Solution:** Uses LLM distillation to extract exactly 3 objective, unbiased bullet points from any political text.
+*   **Edge Case Handling:** Includes specific logic to handle fictional or theoretical platforms (the "Batman Test") without breaking context.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Smart Voter Assistant
+*   **Context-Aware:** Answers complex questions regarding voting protocols and ID requirements.
+*   **Safety First:** Engineered with strict temperature controls ($0.1$) to eliminate hallucinations and ensure factual accuracy.
 
-## Learn More
+### 3. The Power of One Vote (2019-2025)
+*   **Interactive Visualization:** A dynamic, React-based data chart showing real-world razor-thin election margins. 
+*   **Impact:** Visually demonstrates that local elections are often decided by fewer than 10 votes.
 
-To learn more about Next.js, take a look at the following resources:
+## 🏗️ Technical Architecture: The Fail-Safe System
+The standout feature of this repo is the **Smart Local Cache**. Civic platforms notoriously crash during traffic spikes. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**How it works:**
+1.  **Detection:** The API route monitors the Gemini API response status.
+2.  **Intercept:** If a `429` (Rate Limit) or `500` error is detected, the system triggers a fallback.
+3.  **Intent Parsing:** A keyword-matching engine scans the user's prompt (e.g., searching for "ID", "Time", "Location").
+4.  **Graceful Degradation:** The user receives a high-quality, pre-cached response relevant to their query instead of a generic error message.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 Tech Stack
+*   **Framework:** Next.js 14 (App Router)
+*   **AI Engine:** Google Gemini 3.0 Flash
+*   **Styling:** Tailwind CSS + Framer Motion
+*   **Theme:** Midnight Glassmorphism
 
-## Deploy on Vercel
+## ⚙️ Installation & Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/parth60k/election-playbook.git](https://github.com/parth60k/election-playbook.git)
